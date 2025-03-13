@@ -1,34 +1,33 @@
+<!DOCTYPE html>
 <html>
-    <body>
-        <h2>switch</h2>
-        <p id="demo"></p>
-        <script>
-            var day;
-            switch(new Date().getDay()){
-                case 0:
-                    day="Sunday"
-                    break
-                case 1:
-                    day= "Monday"
-                    break
-                case 2:
-                    day="Tuesday"
-                     break
-                case 3:
-                    day = "Wednesday"
-                    break
-                case 5:
-                    day = "Thurday"
-                    break
-                case 6:
-                    day = "Friday"
-                    break
-                case 7:
-                    day="Saturday"
-                    break
-         
+
+<body>
+    <h2>JavaScript Promise</h2>
+    <p id="demo"></p>
+    <script>
+        function myDisplayer(some) {
+            document.getElementById("demo").innerHTML = some;
+        }
+        function sum(a, b) {
+            var sum = a + b;
+            myDisplayer(sum);
+        }
+        let myPromise = new Promise(function (myResolve, myReject) {
+            // producing code may take some time
+            let x = 0; // some code (try to change x to 5)
+
+            if (x == 0) {
+                myResolve("OK"); // when successfull
+            } else {
+                myReject("Error"); // when error
             }
-            document.getElementById("demo").innerHTML = "Today is : "+day
-        </script>
-    </body>
+        });
+        // consuming code - must wait for fullfilled promise
+        myPromise.then(
+            function (value) { sum(5, 5); }, // code is successfull
+            function (error) { sum(error); } // code is error
+        );
+    </script>
+</body>
+
 </html>

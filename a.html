@@ -1,23 +1,19 @@
-
+<!DOCTYPE html>
 <html>
-    <body>
-        <h1>JS METHODS ON STRING</h1>
-        <script>
-            var a = "AmaZinG"
-            document.write(a.toUpperCase())
-            document.write("<br>")
-            document.write(a.toLowerCase())
-            document.write("<br>")
-            document.write(a.startsWith("i"))
-            document.write("<br>")
 
-            var b = " i love coding"
-            var patt = new RegExp("love")
-            var res = patt.test(b)
-            document.write(res)
+<body>
+    <h2>JavaScript async / await</h2>
+    <h1 id="result"></h1>
+    <script>
+        async function add(a, b) {
+            let response = await a + b;
+            display(response);
+        }
+        function display(some) {
+            document.getElementById("result").innerHTML = some;
+        }
+        add(5, 20);
+    </script>
+</body>
 
-
-
-        </script>
-    </body>
 </html>
